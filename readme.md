@@ -1,1 +1,1 @@
-## ToDos mobile app using Ionic Framework with VueJS
+## ToDos mobile app using Ionic Framework with VueJS Framework
