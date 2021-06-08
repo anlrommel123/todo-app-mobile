@@ -2,11 +2,12 @@
   <div id="container">
     <strong>{{ name }}</strong>
     <p>Explore <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+
+    <button class="btn btn-success">Button 1</button>
   </div>
 </template>
 
 <script lang="ts">
-
 export default {
   name: 'ExploreContainer',
   props: {
