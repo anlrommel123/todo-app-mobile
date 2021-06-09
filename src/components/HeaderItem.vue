@@ -8,9 +8,7 @@
 <script>
     export default {
         name: 'Header',
-        // props: {
-        //     items: Array
-        // },
+
         data() {
             return {
                 inputItem: null
@@ -19,9 +17,9 @@
 
         methods: {
             addItem() {
-            //    this.$emit('addItem', {
-            //         item: this.inputItem
-            //     });
+               this.$emit('addItem', {
+                    item: this.inputItem
+                });
 
                this.inputItem = null
             }

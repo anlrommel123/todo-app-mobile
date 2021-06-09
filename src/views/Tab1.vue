@@ -9,8 +9,8 @@
       </ion-header>
   
       <div class="container">
-        <HeaderItem />
-
+        <HeaderItem @addItem="saveItem" />
+        
         <ToDos :items="items" />
       </div>
     </ion-content>
@@ -29,9 +29,15 @@ export default {
 
   data() {
     return {
-      items: [1,2,3,4]
+      items: []
     }
   },
+
+  methods: {
+    saveItem(item) {
+      this.items.push(item)
+    }
+  }
 
 }
 </script>
