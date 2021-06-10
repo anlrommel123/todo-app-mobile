@@ -7,7 +7,7 @@
 
 <script>
     export default {
-        name: 'Header',
+        name: 'header-item',
 
         data() {
             return {
@@ -18,7 +18,8 @@
         methods: {
             addItem() {
                this.$emit('addItem', {
-                    item: this.inputItem
+                    item: this.inputItem,
+                    isChecked: false
                 });
 
                this.inputItem = null

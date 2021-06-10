@@ -1,13 +1,13 @@
 <template>
     <div class="mt-4">
         <hr>
-        <h6>TO DO</h6>
-        <div v-for="(item, index) in items" :key="index" v-show="!item.isChecked" class="card mt-2">
-            <div class="card-body text-dark">
+        <h6>COMPLETED</h6>
+        <div v-for="(item, index) in items" :key="index" v-show="item.isChecked" class="card mt-2">
+            <div class="card-body text-secondary">
                 <div class="form-check">
                     <input @click="checkItem(index)" class="form-check-input" type="checkbox" :checked="item.isChecked">
-                    <label class="form-check-label">
-                        {{ item.item }}
+                    <label class="form-check-label" for="flexCheckDefault">
+                         <s>{{ item.item }}</s>
                     </label>
                 </div>
             </div>
@@ -17,7 +17,7 @@
 
 <script>
     export default {
-        name: 'todos',
+        name: 'completed-item',
 
         props: {
             items: Array
@@ -28,5 +28,6 @@
                 this.$emit('checkItem', index);
             }
         }
+
     }
 </script>
