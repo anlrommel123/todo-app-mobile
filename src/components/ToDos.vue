@@ -9,6 +9,7 @@
                     <label class="form-check-label">
                         {{ item.item }}
                     </label>
+                    <button class="btn btn-sm float-end"><ion-icon @click="deleteItem(index)" size="small" color="danger" :icon="trash" /></button> 
                 </div>
             </div>
         </div>
@@ -16,8 +17,21 @@
 </template>
 
 <script>
+    import { IonIcon } from '@ionic/vue';
+    import { trash } from 'ionicons/icons';
+
     export default {
         name: 'todos',
+
+        components: {
+            IonIcon
+        },
+
+        setup() {
+            return {
+                trash
+            }
+        },
 
         props: {
             items: Array
@@ -25,7 +39,11 @@
 
         methods: {
             checkItem(index) {
-                this.$emit('checkItem', index);
+                this.$emit('checkItem', index)
+            },
+
+            deleteItem(index) {
+                this.$emit('deleteItem', index)
             }
         }
     }

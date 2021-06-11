@@ -11,7 +11,7 @@
       <div class="container">
         <HeaderItem @addItem="saveItem" />
         
-        <ToDos :items="items" @checkItem="checkItem" />
+        <ToDos :items="items" @checkItem="checkItem" @deleteItem="deleteItem" />
         <CompletedItem :items="items" @checkItem="checkItem" />
       </div>
     </ion-content>
@@ -46,8 +46,12 @@ export default {
           f['isChecked'] ? f['isChecked'] = false : f['isChecked'] = true
         } 
       })
+    },
 
+    deleteItem(index) {
+      this.items.splice(index, 1)
     }
+
   }
 
 }
