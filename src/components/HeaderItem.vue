@@ -1,28 +1,29 @@
 <template>
     <div class="input-group mt-5">
-      <input type="text" class="form-control" v-model="inputItem" @keyup.enter="addItem" placeholder="Add Item">
-      <button class="btn btn-primary" type="button" @click="addItem">Add</button>
+      <input type="text" class="form-control" @click="openModal" placeholder="Add Task">
+      <button class="btn btn-primary" type="button">Add</button>
     </div>
 </template>
 
 <script>
+    import { modalController } from '@ionic/vue'
+    import Modal from '@/components/Modal.vue'
+
     export default {
         name: 'header-item',
 
-        data() {
-            return {
-                inputItem: null
-            }
-        },
-
         methods: {
-            addItem() {
-               this.$emit('addItem', {
-                    item: this.inputItem,
-                    isChecked: false
-                });
 
-               this.inputItem = null
+            async openModal() {
+                const modal = await modalController
+                    .create({
+                        component: Modal,
+                        cssClass: 'my-custom-class',
+                        componentProps: {
+                            title: 'New Title'
+                        },
+                    })
+                return modal.present();
             }
         }
     }
