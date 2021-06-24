@@ -17,7 +17,7 @@
 </template>
 
 <script>
-    import { IonIcon, toastController } from '@ionic/vue';
+    import { IonIcon } from '@ionic/vue';
     import { trash } from 'ionicons/icons';
 
     export default {
@@ -39,29 +39,15 @@
 
         methods: {
             checkItem(index) {
-                const name = 'completed'
-                
                 this.$emit('checkItem', index)
 
-                this.openToast(name)
+                this.$emit('openToast', 'Successfully completed the task.');
             },
 
             deleteItem(index) {
-                const name = 'deleted';
-
                 this.$emit('deleteItem', index)
 
-                this.openToast(name)
-            },
-
-            async openToast(name) {
-                const toast = await toastController
-                    .create({
-                        message: 'Successfully '+name+' the item.',
-                        duration: 2000,
-                        position: 'top'
-                    })
-                return toast.present();
+                this.$emit('openToast', 'Successfully deleted the task.');
             }
     
         }

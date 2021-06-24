@@ -24,6 +24,7 @@ import '@ionic/vue/css/display.css';
 import './theme/variables.css';
 
 import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap/dist/js/bootstrap.js'
 
 const app = createApp(App)
   .use(IonicVue)

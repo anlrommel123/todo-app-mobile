@@ -26,6 +26,8 @@
         methods: {
             checkItem(index) {
                 this.$emit('checkItem', index);
+
+                this.$emit('openToast', 'You unchecked the completed task.');
             }
         }
 
